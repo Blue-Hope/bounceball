@@ -74,7 +74,6 @@ void setup(){
 
 
 void draw(){
-  print(mouseX + " " + mouseY + "\n");
   clear();
   
   text(score_str + ": " + score, max_width - 200, max_height - 20);
@@ -150,7 +149,7 @@ void is_ball_encounted(){
 void crashed(){
   for(int i = 0; i < max_count_width; i++){
     if(5 + i * (block_width + margin) < ball_position_x && 5 + (i+1) * (block_width + margin) > ball_position_x){
-      for(int j = max_count_height-1; j >= 0 ; j++){      
+      for(int j = max_count_height-1; j >= 0 ; j--){      
         if(block_status[i][j] == true){
           block_status[i][j] = false;
           gen_item(5 + i * (block_width + margin), j * (block_height + margin));
